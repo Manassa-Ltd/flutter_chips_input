@@ -44,7 +44,7 @@ class ChipsInput<T> extends StatefulWidget {
     required this.chipBuilder,
     this.findSuggestions,
     this.onSubmit,
-    this.submitKeys = const [],
+    this.submitKeys = const [LogicalKeyboardKey.tab],
     this.existingValues = const [],
     required this.onChanged,
     this.suggestionBuilder,
