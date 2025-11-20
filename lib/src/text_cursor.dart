@@ -1,22 +1,21 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 class TextCursor extends StatefulWidget {
   const TextCursor({
-    Key? key,
+    super.key,
     this.duration = const Duration(milliseconds: 500),
     this.resumed = false,
-  }) : super(key: key);
+  });
 
   final Duration duration;
   final bool resumed;
 
   @override
-  _TextCursorState createState() => _TextCursorState();
+  TextCursorState createState() => TextCursorState();
 }
 
-class _TextCursorState extends State<TextCursor>
+class TextCursorState extends State<TextCursor>
     with SingleTickerProviderStateMixin {
   bool _displayed = false;
   late Timer _timer;
