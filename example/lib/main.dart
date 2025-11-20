@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_chips_input/flutter_chips_input.dart';
 
 const String avatarPlaceholder = "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
@@ -67,6 +68,7 @@ class MyHomePageState extends State<MyHomePage> {
                 // allowChipEditing: true,
                 keyboardAppearance: Brightness.dark,
                 textCapitalization: TextCapitalization.words,
+                submitKeys: const [LogicalKeyboardKey.tab],
                 // enabled: false,
                 // maxChips: 5,
                 textStyle: const TextStyle(height: 1.5, fontFamily: 'Roboto', fontSize: 16),

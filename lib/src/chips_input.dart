@@ -44,6 +44,7 @@ class ChipsInput<T> extends StatefulWidget {
     required this.chipBuilder,
     this.findSuggestions,
     this.onSubmit,
+    this.submitKeys = const [],
     this.existingValues = const [],
     required this.onChanged,
     this.suggestionBuilder,
@@ -72,6 +73,7 @@ class ChipsInput<T> extends StatefulWidget {
   final ChipsInputSuggestions<T>? findSuggestions;
   final List<String> existingValues;
   final OnSubmitCallback<T>? onSubmit;
+  final List<KeyboardKey> submitKeys;
   final ValueChanged<List<T>> onChanged;
   final ChipsBuilder<T> chipBuilder;
   final ChipsBuilder<T>? suggestionBuilder;
@@ -534,8 +536,11 @@ class ChipsInputState<T> extends State<ChipsInput<T>> implements TextInputClient
             }
           }
 
-          if(event.logicalKey == LogicalKeyboardKey.tab) {
-            _performAction();
+          for(final key in widget.submitKeys) {
+            if(event.physicalKey == key || event.logicalKey == key) {
+              _performAction();
+              break;
+            }
           }
         }
       },
